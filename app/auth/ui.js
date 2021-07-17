@@ -9,6 +9,7 @@ const onSignUpSuccess = (response) => {
   $('#sign-up').hide()
   $('#sign-in').hide()
   $('#sign-out').show()
+  $('#new-game').show()
 }
 
 const onSignUpFailure = (response) => {
@@ -23,6 +24,7 @@ const onSignInSuccess = (response) => {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').show()
+  $('#new-game').show()
 }
 
 const onSignInFailure = () => {
@@ -35,6 +37,7 @@ const onSignOutSuccess = () => {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#sign-out').hide()
+  $('#new-game').show()
 }
 
 const onSignOutFailure = () => {
