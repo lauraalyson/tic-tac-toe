@@ -18,5 +18,5 @@ curl "https://tic-tac-toe-api-development.herokuapp.com/games/60f2f1a2c0af330017
       "over": false
     }
   }'
-  
+
 echo
