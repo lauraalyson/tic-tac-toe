@@ -25,7 +25,7 @@ const onSignInSuccess = (response) => {
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').show()
-  $('#new-game').show()
+  $('#create-game').show()
   $('#board').show()
 }
 
@@ -39,12 +39,25 @@ const onSignOutSuccess = () => {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#sign-out').hide()
-  $('#new-game').hide()
+  $('#create-game').hide()
   $('#board').hide()
 }
 
 const onSignOutFailure = () => {
   $('#confirm-message').text('Oops, try again.')
+}
+
+const onCreateGameSuccess = (response) => {
+  $('#confirm-message').text('This Works')
+  store.token = response.game.id
+  store.cells = response.game.cells
+  console.log(store.token)
+  console.log(store.cells)
+}
+
+const onCreateGameFailure = () => {
+  $('#confirm-message').text('Nope.')
+  console.log('This does not work')
 }
 
 module.exports = {
@@ -53,5 +66,7 @@ module.exports = {
   onSignInSuccess,
   onSignInFailure,
   onSignOutSuccess,
-  onSignOutFailure
+  onSignOutFailure,
+  onCreateGameSuccess,
+  onCreateGameFailure
 }
