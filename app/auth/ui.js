@@ -49,15 +49,25 @@ const onSignOutFailure = () => {
 
 const onCreateGameSuccess = (response) => {
   $('#confirm-message').text('New Game')
-  store.token = response.game.id
+  store.gameToken = response.game.id
   store.cells = response.game.cells
-  console.log(store.token)
+  console.log(store.gameToken)
   console.log(store.cells)
 }
 
 const onCreateGameFailure = () => {
   $('#confirm-message').text('Hmmm... try again')
   console.log('This does not work')
+}
+
+$('.box-choice').on('click', function (event) {
+  console.log('this is clicked')
+})
+
+const onEmptyBox = function (event) {
+  if ($('.box-choice').is(':empty')) {
+    console.log('empty')
+  }
 }
 
 module.exports = {
@@ -68,5 +78,6 @@ module.exports = {
   onSignOutSuccess,
   onSignOutFailure,
   onCreateGameSuccess,
-  onCreateGameFailure
+  onCreateGameFailure,
+  onEmptyBox
 }

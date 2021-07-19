@@ -20,21 +20,20 @@ const signIn = function (data) {
   })
 }
 
-const signOut = function (data) {
+const createGame = function (data, response) {
   return $.ajax({
-    url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-out',
-    method: 'DELETE',
+    url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
+    method: 'POST',
     headers: {
       Authorization: 'Bearer ' + store.token
     }
   })
 }
 
-const createGame = function (data) {
-  console.log(data)
+const signOut = function (data) {
   return $.ajax({
-    url: 'https://tic-tac-toe-api-development.herokuapp.com/games',
-    method: 'POST',
+    url: 'https://tic-tac-toe-api-development.herokuapp.com/sign-out',
+    method: 'DELETE',
     headers: {
       Authorization: 'Bearer ' + store.token
     }

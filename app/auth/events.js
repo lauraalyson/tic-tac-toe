@@ -26,18 +26,18 @@ const onSignIn = function (event) {
     .catch(ui.onSignInFailure)
 }
 
-const onSignOut = function (event) {
-  event.preventDefault()
-  api.signOut()
-    .then(ui.onSignOutSuccess)
-    .catch(ui.onSignOutFailure)
-}
-
 const onCreateGame = function (event) {
   console.log('new game created')
   api.createGame()
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)
+}
+
+const onSignOut = function (event) {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutFailure)
 }
 
 module.exports = {
