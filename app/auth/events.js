@@ -28,6 +28,7 @@ const onSignIn = function (event) {
 
 const onCreateGame = function (event) {
   console.log('new game created')
+  // $('.box-choice').text('')
   api.createGame()
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)

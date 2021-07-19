@@ -55,20 +55,27 @@ const onCreateGameSuccess = (response) => {
   console.log(store.cells)
 }
 
-const onCreateGameFailure = () => {
+const onCreateGameFailure = (response) => {
   $('#confirm-message').text('Hmmm... try again')
-  console.log('This does not work')
+  console.log('failed to create game')
 }
 
 $('.box-choice').on('click', function (event) {
   console.log('this is clicked')
 })
 
-const onEmptyBox = function (event) {
-  if ($('.box-choice').is(':empty')) {
-    console.log('empty')
-  }
+const onEmptyDiv = (response) => {
+  const emptyDiv = $('.box-choice')
+  response.game.cells.each(function (i) {
+    emptyDiv[i] = response.game.cells[i]
+  })
 }
+
+// document.querySelector(selector).innerHTML.trim().length > 0;
+// const onEmptyBox = function (event) {
+// if (document.getElementById('#test').innerHTML.trim().length === 0)
+// console.log('it is empty')
+// }
 
 module.exports = {
   onSignUpSuccess,
@@ -79,5 +86,5 @@ module.exports = {
   onSignOutFailure,
   onCreateGameSuccess,
   onCreateGameFailure,
-  onEmptyBox
+  onEmptyDiv
 }
