@@ -48,7 +48,7 @@ const onSignOutFailure = () => {
 }
 
 const onCreateGameSuccess = (response) => {
-  $('#confirm-message').text('This Works')
+  $('#confirm-message').text('New Game')
   store.token = response.game.id
   store.cells = response.game.cells
   console.log(store.token)
@@ -56,7 +56,7 @@ const onCreateGameSuccess = (response) => {
 }
 
 const onCreateGameFailure = () => {
-  $('#confirm-message').text('Nope.')
+  $('#confirm-message').text('Hmmm... try again')
   console.log('This does not work')
 }
 
