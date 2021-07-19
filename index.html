@@ -18,6 +18,8 @@
       <h1>Tic Tac Toe</h1>
       <p id="confirm-message"></p>
 
+      <!-- button id="create-account">Create an Account</button -->
+
     <!-- Sign Up -->
     <form id="sign-up">
       <label>Email</label>
@@ -42,10 +44,33 @@
     </form>
 
     <!-- Sign Out -->
-    <button id="sign-out">Sign Out</button>
+    <button id="sign-out" style="display:none;">Sign Out</button>
 
-    <button id="new-game">New Game</button>
-    <main id="board">This is the board</main>
+    <!-- New Game Button -->
+    <button id="new-game" style="display:none;">New Game</button>
+
+    <!-- Game Console -->
+    <main id="board" style="display:none;">
+      <div class="container-fluid">
+            <div class="container-fluid tic-container">
+              <div class="row tic-row">
+                <div data-cell-index="0" class="col-4 tic-box"> 1(0) </div>
+                <div data-cell-index="1" class="col-4 tic-box"> 2(1) </div>
+                <div data-cell-index="2" class="col-4 tic-box"> 3(2) </div>
+              </div>
+              <div class="row tic-row">
+                <div data-cell-index="3" class="col-4 tic-box"> 4(3) </div>
+                <div data-cell-index="4" class="col-4 tic-box"> 5(4) </div>
+                <div data-cell-index="5" class="col-4 tic-box"> 6(5) </div>
+              </div>
+              <div class="row tic-row">
+                <div data-cell-index="6" class="col-4 tic-box"> 7(6) </div>
+                <div data-cell-index="7" class="col-4 tic-box"> 8(7) </div>
+                <div data-cell-index="8" class="col-4 tic-box"> 9(8) </div>
+          </div>
+        </div>
+      </div>
+    </main>
 
     </body>
 </html>

@@ -1,14 +1,17 @@
 #!/bin/bash
 
-# TOKEN="6f2c0f0c325229fbbbef8e37b97759e3" INDEX="0" VALUE="X" sh curl-scripts/game/update.sh
+# TOKEN="6f2c0f0c325229fbbbef8e37b97759e3" INDEX="0" VALUE="X" sh curl-scripts/games/update.sh
 
 # don't use a password you use for any real websites!
+API="https://tic-tac-toe-api-development.herokuapp.com"
+URL_PATH="/games"
 
-curl "https://tic-tac-toe-api-development.herokuapp.com/games/60f2f1a2c0af3300174bdf4b" \
-  --include \
+
+ curl "${API}${URL_PATH}/${ID}" \
+ --include \
   --request PATCH \
-  --header "Content-Type: application/json" \
   --header "Authorization: Bearer ${TOKEN}" \
+  --header "Content-Type: application/json" \
   --data '{
     "game": {
       "cell": {
@@ -19,4 +22,4 @@ curl "https://tic-tac-toe-api-development.herokuapp.com/games/60f2f1a2c0af330017
     }
   }'
 
-echo
+ echo

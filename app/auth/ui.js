@@ -3,13 +3,14 @@
 const store = require('./../store')
 
 const onSignUpSuccess = (response) => {
-  $('#confirm-message').text(`Your account is ready, ${response.user.email}, let's play!`)
+  $('#confirm-message').text(`Your account is ready, ${response.user.email}, let's sign in!`)
   console.log(response)
   $('#sign-up').trigger('reset')
   $('#sign-up').hide()
-  $('#sign-in').hide()
-  $('#sign-out').show()
-  $('#new-game').show()
+  $('#sign-in').show()
+  // $('#sign-out').show()
+  // $('#new-game').show()
+  // $('#board').show()
 }
 
 const onSignUpFailure = (response) => {
@@ -18,13 +19,14 @@ const onSignUpFailure = (response) => {
 }
 
 const onSignInSuccess = (response) => {
-  $('#confirm-message').text(`Hey, ${response.user.email}! Welcome back.`)
+  $('#confirm-message').text(`Hey, ${response.user.email}! let's play!`)
   store.token = response.user.token
   $('#sign-in').trigger('reset')
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#sign-out').show()
   $('#new-game').show()
+  $('#board').show()
 }
 
 const onSignInFailure = () => {
@@ -37,7 +39,8 @@ const onSignOutSuccess = () => {
   $('#sign-in').show()
   $('#sign-up').show()
   $('#sign-out').hide()
-  $('#new-game').show()
+  $('#new-game').hide()
+  $('#board').hide()
 }
 
 const onSignOutFailure = () => {
