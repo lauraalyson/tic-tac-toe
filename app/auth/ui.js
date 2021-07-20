@@ -60,22 +60,23 @@ const onCreateGameFailure = (response) => {
   console.log('failed to create game')
 }
 
-$('.box-choice').on('click', function (event) {
+$('.box').on('click', function (event) {
   console.log('this is clicked')
 })
 
+// $('.box').on('click', event.doSomething)
+
+// const doSomething = function (event) {
+// const clickedBox = event.target
+// console.log(clickedBox)
+// }
+
 const onEmptyDiv = (response) => {
-  const emptyDiv = $('.box-choice')
+  const emptyDiv = $('.box')
   response.game.cells.each(function (i) {
     emptyDiv[i] = response.game.cells[i]
   })
 }
-
-// document.querySelector(selector).innerHTML.trim().length > 0;
-// const onEmptyBox = function (event) {
-// if (document.getElementById('#test').innerHTML.trim().length === 0)
-// console.log('it is empty')
-// }
 
 module.exports = {
   onSignUpSuccess,
