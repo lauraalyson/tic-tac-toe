@@ -1,31 +1,44 @@
 @import '~bootstrap/scss/bootstrap';
 
-.ads{
-  text-align: center;
-  margin: .4vw 0;
-  background: #F4CC70;
-  padding: .4vw;
+main {
+  display: center;
+  justify-content: center;
+  left: 50%;
+  top: 50%;
 }
 
 .content{
   margin: .4vw 0;
   background: lightblue;
   padding: .4vw;
-}
-.tic-panel{
-  border: solid 2px black;
-  margin: .4vw 0;
-  background: #66A5AD;
-  padding: .4vw;
+  left: 50%;
+  top: 50%;
 }
 
-.tic-box{
-  border: solid black 1px;
+.box {
+  justify-content: center;
+  vertical-align: middle;
   font-size: 5vw;
   background: #6AB187;
   text-align: center;
   color: lavender;
-}
-.tic-box:hover{
+  width: 100px;
+  height: 100px;
+
+  &:nth-child(1),
+  &:nth-child(2),
+  &:nth-child(3),
+  &:nth-child(4),
+  &:nth-child(5),
+  &:nth-child(6) {
+    border-bottom: 3px solid black;
+  }
+
+  &:nth-child(2) {
+    border-left: 3px solid black;
+    border-right: 3px solid black;
+  }}
+
+.box:hover{
   background: #20948B;
 }

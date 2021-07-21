@@ -49,8 +49,9 @@ const onSignOutFailure = () => {
 
 const onCreateGameSuccess = (response) => {
   $('#confirm-message').text('New Game')
-  store.gameToken = response.game.id
-  store.cells = response.game.cells
+  store.game = response.game
+  store.currentPlayer = response.game.value
+  store.game._id = response.game._id
   console.log(store.gameToken)
   console.log(store.cells)
 }
@@ -60,22 +61,14 @@ const onCreateGameFailure = (response) => {
   console.log('failed to create game')
 }
 
-$('.box').on('click', function (event) {
-  console.log('this is clicked')
-})
+const onUpdateGameSuccess = (response) => {
+  store.game = response.game
+  store.currentPlayer = response.game.value
+  console.log(store.game)
+}
 
-// $('.box').on('click', event.doSomething)
-
-// const doSomething = function (event) {
-// const clickedBox = event.target
-// console.log(clickedBox)
-// }
-
-const onEmptyDiv = (response) => {
-  const emptyDiv = $('.box')
-  response.game.cells.each(function (i) {
-    emptyDiv[i] = response.game.cells[i]
-  })
+const onUpdateGameFailure = (response) => {
+  console.log('did not work')
 }
 
 module.exports = {
@@ -87,5 +80,6 @@ module.exports = {
   onSignOutFailure,
   onCreateGameSuccess,
   onCreateGameFailure,
-  onEmptyDiv
+  onUpdateGameSuccess,
+  onUpdateGameFailure
 }

@@ -3,8 +3,9 @@
 const getFormFields = require('./../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const store = require('./../store')
 
-const onSignUp = function (event) {
+const onSignUp = (event) => {
   event.preventDefault()
   console.log('onSignUp function')
   const form = event.target
@@ -15,7 +16,7 @@ const onSignUp = function (event) {
     .catch(ui.onSignUpFailure)
 }
 
-const onSignIn = function (event) {
+const onSignIn = (event) => {
   event.preventDefault()
   console.log('Sign In')
   const form = event.target
@@ -26,19 +27,39 @@ const onSignIn = function (event) {
     .catch(ui.onSignInFailure)
 }
 
-const onCreateGame = function (event) {
+const onSignOut = (event) => {
+  event.preventDefault()
+  api.signOut()
+    .then(ui.onSignOutSuccess)
+    .catch(ui.onSignOutFailure)
+}
+
+const onCreateGame = (event) => {
   console.log('new game created')
-  // $('.box').text('')
   api.createGame()
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)
 }
 
-const onSignOut = function (event) {
+// const onStoreDiv = (response) => {
+// const storeDiv = $('.box')
+// console.log(onStoreDiv)
+// response.game.cells.each(function (i) {
+// storeDiv[i] = response.game.cells[i]
+// })
+// }
+
+const onUpdateGame = (event) => {
   event.preventDefault()
-  api.signOut()
-    .then(ui.onSignOutSuccess)
-    .catch(ui.onSignOutFailure)
+  const clickedBox = event.target.getAttribute('data-cell-index')
+  console.log(clickedBox)
+  store.gameIndex = clickedBox
+  const gameIndex = store.game.cells[clickedBox]
+  console.log(store.game.cells)
+
+  api.updateGame()
+    .then(ui.onUpdateGameSuccess)
+    .catch(ui.onUpdateGameFailure)
 }
 
 module.exports = {
@@ -46,5 +67,6 @@ module.exports = {
   onSignUp,
   onSignIn,
   onSignOut,
-  onCreateGame
+  onCreateGame,
+  onUpdateGame
 }
