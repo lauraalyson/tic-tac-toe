@@ -52,7 +52,7 @@ const updateGame = function () {
       game: {
         cell: {
           index: store.gameIndex,
-          value: store.player
+          value: store.currentPlayer
         },
         over: false
       }

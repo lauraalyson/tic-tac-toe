@@ -44,27 +44,24 @@ const onSignOutSuccess = () => {
 }
 
 const onSignOutFailure = () => {
-  $('#confirm-message').text('Oops, try again.')
+  alert('Oops, try again.')
 }
 
 const onCreateGameSuccess = (response) => {
   $('#confirm-message').text('New Game')
   store.game = response.game
-  store.currentPlayer = response.game.value
-  store.game._id = response.game._id
-  console.log(store.gameToken)
-  console.log(store.cells)
+  store.currentPlayer = 'x'
+  console.log('This is the current player in onCreateGameSuccess', store.currentPlayer)
 }
 
 const onCreateGameFailure = (response) => {
-  $('#confirm-message').text('Hmmm... try again')
+  alert('Hmmm... try again')
   console.log('failed to create game')
 }
 
 const onUpdateGameSuccess = (response) => {
   store.game = response.game
-  store.currentPlayer = response.game.value
-  console.log(store.game)
+  console.log('Game in updateGame \n', store.game)
 }
 
 const onUpdateGameFailure = (response) => {
