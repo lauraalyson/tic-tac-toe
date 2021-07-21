@@ -56,6 +56,7 @@ const onUpdateGame = (event) => {
   store.gameIndex = clickedBox
   const gameIndex = store.game.cells[clickedBox]
   console.log(store.game.cells)
+  console.lo(gameIndex)
 
   api.updateGame()
     .then(ui.onUpdateGameSuccess)
