@@ -41,6 +41,7 @@ const onSignOutSuccess = () => {
   $('#sign-out').hide()
   $('#create-game').hide()
   $('#board').hide()
+  $('#winner-message').hide()
 }
 
 const onSignOutFailure = () => {
@@ -61,6 +62,8 @@ const onCreateGameFailure = (response) => {
 
 const onUpdateGameSuccess = (response) => {
   store.game = response.game
+  // store.games.cells = response.game.cells
+  // console.log('This is store.games.cells', reponse.game.cells)
   console.log('Game in updateGame \n', store.game)
 }
 
