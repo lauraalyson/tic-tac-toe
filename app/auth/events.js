@@ -41,14 +41,6 @@ const onCreateGame = (event) => {
     .catch(ui.onCreateGameFailure)
 }
 
-// const onStoreDiv = (response) => {
-// const storeDiv = $('.box')
-// console.log(onStoreDiv)
-// response.game.cells.each(function (i) {
-// storeDiv[i] = response.game.cells[i]
-// })
-// }
-
 const onUpdateGame = (event) => {
   event.preventDefault()
   const clickedBox = event.target.getAttribute('data-cell-index')
@@ -56,7 +48,7 @@ const onUpdateGame = (event) => {
   store.gameIndex = clickedBox
   const gameIndex = store.game.cells[clickedBox]
   console.log(store.game.cells)
-  console.lo(gameIndex)
+  console.log(gameIndex)
 
   api.updateGame()
     .then(ui.onUpdateGameSuccess)

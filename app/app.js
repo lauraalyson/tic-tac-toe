@@ -21,6 +21,4 @@ $(() => {
     currentPlayer = currentPlayer === 'o' ? 'x' : 'o'
   }
   $('.box').one('click', onBoxClick)
-  store.currentPlayer = 'x'
-  store.currentPlayer = 'o'
 })
