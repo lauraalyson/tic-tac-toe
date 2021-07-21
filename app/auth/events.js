@@ -39,6 +39,9 @@ const onCreateGame = (event) => {
   api.createGame()
     .then(ui.onCreateGameSuccess)
     .catch(ui.onCreateGameFailure)
+
+  $('.box').html('')
+  $('#winner-message').html('')
 }
 
 const onUpdateGame = (event) => {
@@ -53,62 +56,56 @@ const onUpdateGame = (event) => {
     store.game.cells[clickedBox] = store.currentPlayer
   }
 
-  box.text(store.currentPlayer)
+  box.html(store.currentPlayer)
 
   api.updateGame()
     .then(ui.onUpdateGameSuccess)
     .catch(ui.onUpdateGameFailure)
 
   store.currentPlayer = store.currentPlayer === 'o' ? 'x' : 'o'
-  winnerOfGame()
+  return onShowResults()
 }
 
-const winnerOfGame = () => {
-  let winningPlayer = ''
-
-  const checkWinIndexes = [
-    [0, 1, 2],
-    [3, 4, 5],
-    [6, 7, 8],
-    [0, 3, 6],
-    [1, 4, 7],
-    [2, 5, 8],
-    [0, 4, 8],
-    [2, 4, 6]
+const onShowResults = () => {
+  let winner = ''
+  const winningIndexes = [
+    [0, 1, 2], [3, 4, 5],
+    [6, 7, 8], [0, 3, 6],
+    [1, 4, 7], [2, 5, 8],
+    [0, 4, 8], [2, 4, 6]
   ]
-
-  checkWinIndexes.forEach((index) => {
-    if (
-      index.every((index) => {
-        return store.game.cells[index] === 'x'
-      })
-    ) {
-      winningPlayer = 'x'
-    }
+  winningIndexes.forEach((index) => {
     if (
       index.every((index) => {
         return store.game.cells[index] === 'o'
       })
     ) {
-      winningPlayer = 'o'
+      winner = 'o'
+    }
+    if (
+      index.every((index) => {
+        return store.game.cells[index] === 'x'
+      })
+    ) {
+      winner = 'x'
     }
   })
-
-  if (winningPlayer) {
+  if (winner) {
     store.game.over = true
-    $('#winner-message').text('Player ' + winningPlayer + ' is the winner!!')
+    $('#winner-message').text(winner + ' takes the prize')
     console.log(store.game.over)
-    console.log(winningPlayer)
+    console.log(winner)
   }
-  console.log(winningPlayer)
-  if (store.game.over === true) {
-    $('.box').off('click')
-  }
+  console.log(winner)
   const tie = !store.game.cells.includes('')
   if (tie) {
     store.game.over = true
-    $('#winner-message').text('Tied')
+    $('#winner-message').text('All tied up...')
   }
+  // if (store.game.over === true) {
+  //   $('.box').off('click')
+  // }
+  console.log(onShowResults)
 }
 
 module.exports = {
@@ -118,5 +115,5 @@ module.exports = {
   onSignOut,
   onCreateGame,
   onUpdateGame,
-  winnerOfGame
+  onShowResults
 }
