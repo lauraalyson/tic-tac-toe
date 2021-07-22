@@ -8,9 +8,6 @@ const onSignUpSuccess = (response) => {
   $('#sign-up').trigger('reset')
   $('#sign-up').hide()
   $('#sign-in').show()
-  // $('#sign-out').show()
-  // $('#new-game').show()
-  // $('#board').show()
 }
 
 const onSignUpFailure = (response) => {

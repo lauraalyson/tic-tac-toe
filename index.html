@@ -19,7 +19,7 @@
 
     <div class="blurry-card">
     <nav>
-      <h1>tic-tac-toe</h1>
+      <h1>Tic-Tac-Toe</h1>
       <!-- Sign Out -->
       <button id="sign-out" style="display:none;">Sign Out</button>
       <!-- New Game Button -->
@@ -27,35 +27,31 @@
       <!-- Game Messages -->
       <p id="confirm-message"></p>
       <p id="winner-message"></p>
+      <p id="game-in-progress"></p>
+      <!-- Create Account -->
+      <button id="create-account">New here? Create an account.</button>
     </nav>
 
-    <!-- Create Account -->
-    <button id="create-account">New here? Create an account.</button>
-
     <!-- Sign In -->
-    <br><div class="sign-in-style">
     <form id="sign-in">
-      <label>Email :</label>
+      <label>Email :</label><br>
       <input name="credentials[email]" type="email"><br>
-      <label>Password :</label>
+      <label>Password :</label><br>
       <input name="credentials[password]" type="password"><br>
-      <input type="submit" value="submit">
+      <input type="submit" value="Sign In">
     </form>
-    </div>
 
     <!-- Sign Up -->
-    <div class="sign-up-style">
      <form id="sign-up" style="display: none;">
-      <label>Email</label>
+      <label>Email</label><br>
       <input name="credentials[email]" type="email"><br>
-      <label>Password</label>
-      <input name="credentials[password]" type="password"><br>
+      <label>Password</label><br>
+      <input name="credentials[password]" type="password">
       <label>Password Confirmation</label>
       <input name="credentials[password_confirmation]" type="password"><br>
       <input id="sign-up-button" type="submit" value="Sign Up">
     </form>
       <br>
-    </div>
 
     <!-- Game Console -->
     <main id="board" style="display:none;">

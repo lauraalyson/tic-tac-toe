@@ -47,6 +47,7 @@ const onCreateGame = (event) => {
 
   $('.box').html('')
   $('#winner-message').html('')
+  $('#confirm-message').show()
 }
 
 const onUpdateGame = (event) => {
