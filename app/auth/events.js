@@ -5,6 +5,11 @@ const api = require('./api')
 const ui = require('./ui')
 const store = require('./../store')
 
+const showSignUp = (event) => {
+  $('#sign-up').show()
+  $('#create-account').hide()
+}
+
 const onSignUp = (event) => {
   event.preventDefault()
   console.log('onSignUp function')
@@ -92,7 +97,7 @@ const onShowResults = () => {
   })
   if (winner) {
     store.game.over = true
-    $('#winner-message').text(winner + ' takes the prize')
+    $('#winner-message').text(winner + ' wins this round.. play again?')
     console.log(store.game.over)
     console.log(winner)
   }
@@ -100,7 +105,7 @@ const onShowResults = () => {
   const tie = !store.game.cells.includes('')
   if (tie) {
     store.game.over = true
-    $('#winner-message').text('All tied up...')
+    $('#winner-message').text('All tied up... try again?')
   }
   // if (store.game.over === true) {
   //   $('.box').off('click')
@@ -115,5 +120,6 @@ module.exports = {
   onSignOut,
   onCreateGame,
   onUpdateGame,
-  onShowResults
+  onShowResults,
+  showSignUp
 }

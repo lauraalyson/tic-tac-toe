@@ -2,7 +2,7 @@
 <html>
     <head>
 
-      <title>Tic Tac Toe</title>
+      <title>Tic-Tac-Toe</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -14,48 +14,53 @@
 
     </head>
 
+
     <body>
-      <h1>Tic Tac Toe</h1>
+
+    <div class="blurry-card">
+    <nav>
+      <h1>tic-tac-toe</h1>
+      <!-- Sign Out -->
+      <button id="sign-out" style="display:none;">Sign Out</button>
+      <!-- New Game Button -->
+     <button id="create-game" style="display:none;">New Game</button>
+      <!-- Game Messages -->
       <p id="confirm-message"></p>
+      <p id="winner-message"></p>
+    </nav>
 
-    <!-- button id="create-account">Create an Account</button -->
-
-    <!-- Sign Up -->
-    <form id="sign-up">
-      <label>Email</label>
-      <input name="credentials[email]" type="email">
-      <label>Password</label>
-      <input name="credentials[password]" type="password">
-      <label>Password Confirmation</label>
-      <input name="credentials[password_confirmation]" type="password">
-      <br>
-      <input type="submit" value="Sign Up">
-    </form>
-      <br>
+    <!-- Create Account -->
+    <button id="create-account">New here? Create an account.</button>
 
     <!-- Sign In -->
-    <form id="sign-in" class="border">
-      <label>Email</label>
-      <input name="credentials[email]" type="email">
-      <label>Password</label>
-      <input name="credentials[password]" type="password">
-      <br>
-      <input type="submit" value="Sign In">
+    <br><div class="sign-in-style">
+    <form id="sign-in">
+      <label>Email :</label>
+      <input name="credentials[email]" type="email"><br>
+      <label>Password :</label>
+      <input name="credentials[password]" type="password"><br>
+      <input type="submit" value="submit">
     </form>
+    </div>
 
-    <!-- Sign Out -->
-    <button id="sign-out" style="display:none;">Sign Out</button>
-
-    <!-- New Game Button -->
-    <button id="create-game" style="display:none;">New Game</button>
-    <br>
+    <!-- Sign Up -->
+    <div class="sign-up-style">
+     <form id="sign-up" style="display: none;">
+      <label>Email</label>
+      <input name="credentials[email]" type="email"><br>
+      <label>Password</label>
+      <input name="credentials[password]" type="password"><br>
+      <label>Password Confirmation</label>
+      <input name="credentials[password_confirmation]" type="password"><br>
+      <input id="sign-up-button" type="submit" value="Sign Up">
+    </form>
+      <br>
+    </div>
 
     <!-- Game Console -->
-    <br>
-    <h2 id="winner-message"></h2>
     <main id="board" style="display:none;">
-      <div class="container">
-            <div class="container-fluid">
+      <div class="">
+            <div class="container">
               <div class="row">
                 <div data-cell-index="0" id="one" class="col-4 box"></div>
                 <div data-cell-index="1" id="two" class="col-4 box"></div>
@@ -67,13 +72,13 @@
                 <div data-cell-index="5" id="six" class="col-4 box"></div>
               </div>
               <div class="row">
-                <div data-cell-index="6" class="col-4 box"></div>
-                <div data-cell-index="7" class="col-4 box"></div>
-                <div data-cell-index="8" class="col-4 box"></div>
+                <div data-cell-index="6" id="seven" class="col-4 box"></div>
+                <div data-cell-index="7" id="eight" class="col-4 box"></div>
+                <div data-cell-index="8" id="nine" class="col-4 box"></div>
           </div>
         </div>
       </div>
     </main>
-
-    </body>
+  </div>
+  </body>
 </html>

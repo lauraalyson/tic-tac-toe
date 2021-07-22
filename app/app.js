@@ -8,4 +8,5 @@ $(() => {
   $('#sign-out').on('click', authEvents.onSignOut)
   $('#create-game').on('click', authEvents.onCreateGame)
   $('.box').on('click', authEvents.onUpdateGame)
+  $('#create-account').on('click', authEvents.showSignUp)
 })

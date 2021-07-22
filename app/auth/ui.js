@@ -27,6 +27,7 @@ const onSignInSuccess = (response) => {
   $('#sign-out').show()
   $('#create-game').show()
   $('#board').show()
+  $('#create-account').hide()
 }
 
 const onSignInFailure = () => {
@@ -37,7 +38,7 @@ const onSignInFailure = () => {
 const onSignOutSuccess = () => {
   $('#confirm-message').text('Signed out! See ya next time.')
   $('#sign-in').show()
-  $('#sign-up').show()
+  $('#create-account').show()
   $('#sign-out').hide()
   $('#create-game').hide()
   $('#board').hide()
