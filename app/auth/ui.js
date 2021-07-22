@@ -49,7 +49,7 @@ const onSignOutFailure = () => {
 }
 
 const onCreateGameSuccess = (response) => {
-  $('#confirm-message').text('New Game')
+  $('#confirm-message').text("let's play!")
   $('#winner-message').show()
   store.game = response.game
   store.currentPlayer = 'x'
@@ -62,6 +62,7 @@ const onCreateGameFailure = (response) => {
 }
 
 const onUpdateGameSuccess = (response) => {
+  $('#confirm-message').hide()
   store.game = response.game
   console.log('Game in updateGame \n', store.game)
 }
