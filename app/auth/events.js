@@ -8,6 +8,7 @@ const store = require('./../store')
 const showSignUp = (event) => {
   $('#sign-up').show()
   $('#create-account').hide()
+  $('#sign-in').hide()
 }
 
 const onSignUp = (event) => {
