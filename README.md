@@ -25,14 +25,3 @@ From paper to screen, this Tic-Tac-Toe rendition is expressed as a Single-Page-A
 ### Wireframe
 
 ![wireframe](https://i.imgur.com/BngdHUt.png)
-
-## Additional Resources
-
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
-
-## [License](LICENSE)
-
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.

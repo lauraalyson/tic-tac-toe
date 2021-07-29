@@ -58,23 +58,22 @@ const onUpdateGame = (event) => {
 
   const box = $(event.target)
   console.log(box)
-
-  if (store.game.cells[clickedBox] === '') {
+  console.log(`This is store.game.cells[clickedBox] ${store.game.cells[clickedBox]}`)
+  if (store.game.cells[clickedBox] === '' && !store.game.over) {
     store.game.cells[clickedBox] = store.currentPlayer
+    box.html(store.currentPlayer)
+    onShowResults()
+    api.updateGame()
+      .then(ui.onUpdateGameSuccess)
+      .catch(ui.onUpdateGameFailure)
+    store.currentPlayer = store.currentPlayer === 'o' ? 'x' : 'o'
+  } else {
+    $('#confirm-message').show().text('click somewhere else')
   }
-
-  box.html(store.currentPlayer)
-
-  api.updateGame()
-    .then(ui.onUpdateGameSuccess)
-    .catch(ui.onUpdateGameFailure)
-
-  store.currentPlayer = store.currentPlayer === 'o' ? 'x' : 'o'
-  return onShowResults()
 }
 
 const onShowResults = () => {
-  let winner = ''
+  let winner = null
   const winningIndexes = [
     [0, 1, 2], [3, 4, 5],
     [6, 7, 8], [0, 3, 6],
@@ -88,6 +87,8 @@ const onShowResults = () => {
       })
     ) {
       winner = 'o'
+      store.game.over = true
+      $('#winner-message').text(winner + ' wins this round.. play again?')
     }
     if (
       index.every((index) => {
@@ -95,14 +96,11 @@ const onShowResults = () => {
       })
     ) {
       winner = 'x'
+      store.game.over = true
+      $('#winner-message').text(winner + ' wins this round.. play again?')
     }
   })
-  if (winner) {
-    store.game.over = true
-    $('#winner-message').text(winner + ' wins this round.. play again?')
-    console.log(store.game.over)
-    console.log(winner)
-  }
+
   console.log(winner)
   const tie = !store.game.cells.includes('')
   if (tie) {

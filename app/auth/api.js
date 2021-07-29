@@ -42,6 +42,7 @@ const createGame = function (data, response) {
 }
 
 const updateGame = function () {
+  console.log(`in the api call updateGame ${store.game.over}`)
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
@@ -54,7 +55,7 @@ const updateGame = function () {
           index: store.gameIndex,
           value: store.currentPlayer
         },
-        over: false
+        over: store.game.over
       }
     }
   })

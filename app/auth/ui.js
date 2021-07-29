@@ -28,7 +28,7 @@ const onSignInSuccess = (response) => {
 }
 
 const onSignInFailure = () => {
-  $('#confirm-message').trigger('Login Attempt Failed')
+  $('#confirm-message').text('Login Attempt Failed')
   $('#sign-in').trigger('reset')
 }
 
@@ -43,7 +43,7 @@ const onSignOutSuccess = () => {
 }
 
 const onSignOutFailure = () => {
-  alert('Oops, try again.')
+  $('#confirm-message').text('Log out unsuccessful')
 }
 
 const onCreateGameSuccess = (response) => {
@@ -66,7 +66,7 @@ const onUpdateGameSuccess = (response) => {
 }
 
 const onUpdateGameFailure = (response) => {
-  console.log('did not work')
+  console.log('Cannot update game')
 }
 
 module.exports = {
