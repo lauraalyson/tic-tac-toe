@@ -9,6 +9,7 @@ const showSignUp = (event) => {
   $('#sign-up').show()
   $('#create-account').hide()
   $('#sign-in').hide()
+  $('#confirm-message').text('Create an Account')
 }
 
 const onSignUp = (event) => {

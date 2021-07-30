@@ -16,7 +16,7 @@ const onSignUpFailure = (response) => {
 }
 
 const onSignInSuccess = (response) => {
-  $('#confirm-message').text(`Hey, ${response.user.email}! let's play!`)
+  $('#confirm-message').text(`Hey, ${response.user.email}! Click new game to play!`)
   store.token = response.user.token
   $('#sign-in').trigger('reset')
   $('#sign-in').hide()
